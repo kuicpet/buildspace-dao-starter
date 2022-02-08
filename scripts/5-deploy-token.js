@@ -1,3 +1,4 @@
+// Deploy custom token contract
 import sdk from './1-initialize-sdk.js'
 
 // insert app address
