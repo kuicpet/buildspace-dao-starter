@@ -1,4 +1,4 @@
-import {UnsupportedChainIdError} from '@web3-react/core'
+import { UnsupportedChainIdError } from '@web3-react/core'
 import { useEffect, useMemo, useState } from 'react'
 // import thirdweb
 import { useWeb3 } from '@3rdweb/hooks'
@@ -158,12 +158,15 @@ const App = () => {
         console.log('failed to get nft balance', error)
       })
   }, [address])
-  
-  if(error instanceof UnsupportedChainIdError){
+
+  if (error instanceof UnsupportedChainIdError) {
     return (
       <div className='unsupported-network'>
         <h2>Please connect to Rinkeby Network</h2>
-        <p>This dapp only works on the Rinkeby network,please switch networks in your connected wallet</p>
+        <p>
+          This dapp only works on the Rinkeby network,please switch networks in
+          your connected wallet
+        </p>
       </div>
     )
   }
@@ -187,7 +190,12 @@ const App = () => {
   if (hasClaimedNFT) {
     return (
       <div className='member-page'>
-        <h1>🍪 Welcome Creator {shortenAddress(address)}</h1>
+        <h1>
+          🍪{' '}
+          <span className='text-gradient'>
+            Welcome Creator {shortenAddress(address)}
+          </span>
+        </h1>
         <p>Congratulations on being a member</p>
         <div>
           <div>
@@ -320,7 +328,7 @@ const App = () => {
                   ? 'You Already Voted'
                   : 'Submit Votes'}
               </button>
-              <small>
+              <small style={{ marginBottom: '1rem' }}>
                 This will trigger multiple transactions that you will need to
                 sign.
               </small>
@@ -348,7 +356,7 @@ const App = () => {
 
   return (
     <div className='landing'>
-      <h1>Hurray 🎉.wallet connected!</h1>
+      <h1 className='text-gradient'>Hurray 🎉.wallet connected!</h1>
       <div className='mint-nft'>
         <h1>Mint your free 🍪DAO Membership NFT</h1>
         <button disabled={isClaiming} onClick={() => mintNft()}>
